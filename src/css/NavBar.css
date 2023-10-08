@@ -1,0 +1,164 @@
+.navbar{
+    background: green;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    box-shadow: 0 0 3px 3px #525252;
+    animation: abrirMenu 0.4s ease-out;
+    overflow: hidden;
+}
+
+.navbar_closed{
+    background: green;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    /* animation: cerrarMenu 0.4s ease-out; */
+    overflow: hidden;
+}
+
+.navbar_closed * {
+    display: none;
+}
+
+.boton-abrir{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: green;
+    border: none;
+    padding: 10px;
+    margin: 20px 0 0 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px #525252;
+}
+
+.boton-abrir:hover{
+    background: #005a00;
+}
+
+.boton-abrir:active{
+    background: green;
+}
+
+.boton-abrir i{
+    font-size: 3rem;
+    color: white;
+}
+
+
+.container-boton{
+    display: flex;
+    justify-content: end;
+}
+
+.boton-cerrar{
+    background: transparent;
+    padding: 10px 10px 5px 10px;
+    border: none;
+    text-align: right;
+}
+
+.boton-cerrar i{
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.boton-cerrar i:hover{
+    color: rgb(0, 40, 0)
+}
+
+.navbar h3, .navbar_closed h3{
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.navbar hr{
+    margin: 15px 15px;
+    border: 1px solid white;
+}
+
+.navbar .nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.navbar .nav nav{
+    padding: 10px 0 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.nav nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+}
+
+.nav nav ul li{
+    font-size: 1.8rem;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.nav nav ul li .nav-link{
+    color: white;
+    text-decoration: none;
+}
+
+.nav nav ul li .nav-link:hover{
+    color: rgb(0, 40, 0);
+}
+
+.nav nav ul li .nav-link:active{
+    color: white;
+}
+
+.nav-icon{
+    width: 25px;
+    margin-right: 15px;
+}
+
+.logout{
+    padding: 0 0 0 50px;
+    margin-top: 360px;
+}
+
+.logout p{
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    white-space: nowrap;
+}
+
+@keyframes abrirMenu {
+    from{
+        width: 0;
+    }
+    
+    to{
+        width: 250px;
+    }
+}
+
+@keyframes cerrarMenu {
+    from{
+        width: 250px;
+    }
+
+    to{
+        width: 0;
+    }
+}

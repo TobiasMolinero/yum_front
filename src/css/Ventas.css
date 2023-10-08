@@ -1,0 +1,376 @@
+.container-ventas{
+    overflow: auto;
+    height: 530px;
+    /* background: rgb(250, 183, 183); */
+}
+
+.herramientas{
+    /* background: blue; */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+
+.herramientas h4{
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.herramientas select{
+    padding: 5px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+.herramientas button{
+    background: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    height: 40px;
+    box-shadow: 2px 2px 5px #525252;
+    align-self: self-end;
+    cursor: pointer;
+}
+
+.herramientas button:hover{
+    background: rgb(0, 90, 0);
+}
+
+.herramientas button .bi-plus-square{
+    margin-right: 5px;
+}
+
+
+.tabla{
+    /* background: red; */
+    overflow-y: auto;
+    padding: 10px;
+    height: 380px;
+    padding: 0 30px;
+    margin: 5px 15px 0 15px;
+}
+
+.tabla table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    box-shadow: 1px 1px 5px #525252;
+}
+
+.tabla table thead{
+    background: #97f185;
+    font-size: 1.5rem;
+    /* border-bottom: 1px solid #525252;
+    border-top: 1px solid #525252; */
+}
+
+.tabla table thead tr th{
+    padding: 10px 10px;
+}
+
+.tabla table tbody{
+    font-size: 1.5rem;
+    font-weight: 500;
+    background: white;
+}
+
+.tabla table tbody tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.tabla table tbody tr:hover{
+    background: #d6d6d6;
+
+}
+
+.tabla table tbody tr td{
+    padding: 15px;
+}
+
+.tabla table tbody tr td .bi-trash{
+    padding: 5px 15px;
+    color: #f2f2f2;
+    background: #eb4949;
+    cursor: pointer;
+}
+
+.tabla table tbody tr td .bi-trash:hover{
+    background: #e91d1d;
+}
+
+.tabla table tbody tr td .bi-trash:active{
+    background: #eb4949;
+}
+
+.tabla table tbody tr td .bi-pencil-square{
+    padding: 5px 15px;
+    color: #181818;
+    background: #d0dd1a;
+    cursor: pointer;
+}
+
+.tabla table tbody tr td .bi-pencil-square:hover{
+    background: #eeff00;
+}
+.tabla table tbody tr td .bi-pencil-square:active{
+    background: #d0dd1a;
+}
+
+
+/* MODAL AGREGAR VENTA */
+
+.modal-background{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(82, 82, 82, 0.58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.modal button{
+    margin: 10px 10px 0 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.modal button i{
+    font-size: 2rem;
+}
+
+.modal button i:hover{
+    color:rgba(82, 82, 82)
+}
+
+.modal-container{
+    display: grid;
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    padding: 5px 40px;
+    font-size: 1.6rem;
+    max-width: 1000px;
+}
+
+.modal-container h2{
+    grid-column: span 2;
+    text-align: center;
+}
+
+.modal-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 450px;
+    border-right: 1px solid #d6d6d6;
+    padding: 0 15px 0 0;
+}
+
+.modal-container select,
+.modal-container form input
+{
+    text-align: center;
+}
+
+.modal-container form input,
+.modal-container form select,
+.modal-container form select option,
+.modal-container form textarea{
+    padding: 5px;
+    font-size: 1.6rem;
+}
+
+.modal-container form .nro-venta{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.modal-container form .nro-venta input{
+    background: #97f185;
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-align: end;
+    flex-grow: 1;
+}
+
+.modal-container form textarea{
+    resize: none;
+}
+
+.detalle-venta{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detalle-venta select,
+.detalle-venta input{
+    padding: 5px;
+    font-size: 1.6rem;
+}
+
+.detalle-venta .precio,
+.detalle-venta .cantidad{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+}
+
+.detalle-venta .cantidad input{
+    /* flex-grow: 1; */
+    text-align: center;
+}
+
+.detalle-venta .precio span{
+    font-size: 2rem;
+    font-weight: 700;
+    color: green;
+}
+
+.detalle-venta .precio input{
+    flex-grow: 1;
+    text-align: center;
+    background: #97f185;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.detalle-venta button{
+    background: green;
+    color: #f2f2f2;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    box-shadow: 2px 2px 5px #525252;
+}
+
+.detalle-venta button:hover{
+    background: rgb(0, 90, 0);
+    color: #f2f2f2;
+}
+
+.contenedor-tabla{
+    width: 450px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+.detalle-venta table{
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-y: auto;
+    border: 1px solid #d6d6d6;
+}
+
+.detalle-venta table thead{
+    background: #bdbdbd;
+    
+}
+
+.detalle-venta table thead th{
+    padding: 5px;
+}
+
+.detalle-venta table tbody{
+    background: #ffffff;
+}
+
+.detalle-venta table tbody tr td{
+    padding: 10px;
+}
+
+.detalle-venta table tbody tr td i{
+    padding: 5px 15px;
+    color: #f2f2f2;
+    background: rgb(235, 73, 73);
+    cursor: pointer;
+}
+
+.detalle-venta table tbody tr td i:hover{
+    background: rgb(233, 29, 29);
+}
+
+.detalle-venta table tbody tr td i:active{
+    background: rgb(235, 73, 73);
+}
+
+.detalle-venta .importe-total{
+    display: flex;
+    justify-content: end;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-top: 5px;
+}
+
+
+.detalle-venta .importe-total .importe{
+    color: green;
+    margin-left: 5px;
+    font-weight: 900;
+}
+
+.modal-container .modal-botones{
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.modal-container .modal-botones .boton-guardar,
+.modal-container .modal-botones .boton-cancelar{
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    box-shadow: 2px 2px 5px #525252;
+    cursor: pointer;
+}
+
+.modal-botones .boton-guardar{
+    background: green;
+    color: #f2f2f2;
+}
+
+.modal-botones .boton-guardar:hover{
+    background: rgb(0, 90, 0);
+    color: #f2f2f2;
+}
+
+.modal-botones .boton-guardar:active{
+    background: green;
+    color: #f2f2f2;
+}
+
+.modal-botones .boton-cancelar{
+    background:#bdbdbd
+}
+
+.modal-botones .boton-cancelar:hover{
+    background: #a1a1a1;
+    color: black;
+}
+
+.modal-botones .boton-cancelar:active{
+    background: #bdbdbd;
+    color: black;
+}
+
+

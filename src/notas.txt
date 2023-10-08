@@ -1,0 +1,7 @@
+font size gral: 10px
+
+h1 ----> 3.5rem
+h2 ----> 2rem
+h3 ----> 2rem
+
+texto en gral: 1.8rem

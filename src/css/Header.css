@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: #97f185;
+    box-shadow: 0 0 5px rgb(44, 44, 44);
+}
+
+.header img{
+    width: 180px;
+}
+
+.header h2{
+    font-size: 2.2rem;
+    font-weight: 500;
+}
