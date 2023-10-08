@@ -33,7 +33,7 @@ const closeMenu = () => {
           <div className='nav'>
             <nav>
               <ul>
-                <li><img className='nav-icon' src={iconInicio} alt="" /><Link className='nav-link' onClick={closeMenu} to='/'>Inicio</Link></li>
+                <li><img className='nav-icon' src={iconInicio} alt="" /><Link className='nav-link' onClick={closeMenu} to='/inicio'>Inicio</Link></li>
                 <li><img className='nav-icon' src={iconVentas} alt="" /><Link className='nav-link' onClick={closeMenu} to='/ventas'>Ventas</Link></li>
                 <li><img className='nav-icon' src={iconGastos} alt="" />Gastos</li>
                 <li><img className='nav-icon' src={iconCaja} alt="" />Clientes</li>

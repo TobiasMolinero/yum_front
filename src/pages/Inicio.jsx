@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import ingresos from '../assets/ingresos.png'
 import gastos from '../assets/gastos.png'
 import calendario from '../assets/calendario.png'
+import Header from "../components/Header"
+import NavBar from '../components/NavBar'
 
 
 
@@ -71,6 +73,9 @@ const Inicio = () => {
   }, []);
 
   return (
+    <>
+      <Header/>    
+      <NavBar /> 
       <div className="container-inicio">
         <h1 className="titulo">¡Hola de Nuevo!</h1>
         <p>Un resumen del mes</p>
@@ -107,6 +112,7 @@ const Inicio = () => {
           </div>
         </div>
       </div>
+    </>
   )
 }
 

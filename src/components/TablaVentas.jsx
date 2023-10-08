@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import '../css/Ventas.css'
-import {useState, useEffect, Children} from 'react'
+import {useState, useEffect } from 'react'
 import axios from 'axios'
 import { del_venta, get_ventas } from '../utils/constants/constants'
 import { Link } from 'react-router-dom'
@@ -11,9 +11,13 @@ const TablaVentas = (props) => {
 
     const [ventas, setVentas] = useState([])
 
+    const handleAbrirModalEdit = (values) => {
+        props.props.getModalEdit(values)
+    }
+
     const getVentas = async() => {
         try {
-            let response = await axios.get(get_ventas + props.props)
+            let response = await axios.get(get_ventas + props.props.zona)
             setVentas(response.data)
         } catch (error) {
             alert(error)
@@ -31,7 +35,7 @@ const TablaVentas = (props) => {
 
     useEffect(() => {
         getVentas()
-    }, [props.props])
+    }, [props.props.zona])
 
     return (
         <table>
@@ -62,7 +66,7 @@ const TablaVentas = (props) => {
                         <td>{v.totalVenta}</td>
                         <td>
                             <i className="bi bi-trash" onClick={() => {borrarVenta(v.nroVenta)}}></i>
-                            <i className="bi bi-pencil-square"></i>
+                            <i className="bi bi-pencil-square" onClick={() => handleAbrirModalEdit({modal: true, nroVenta: v.nroVenta})}></i>
                         </td>
 
                     </tr>    

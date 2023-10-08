@@ -106,19 +106,35 @@ const ModalAddVenta = (props) => {
     // FUNCIONES CRUD
 
     const agregarVenta = async() => {
-        await axios.post(add_venta, {
-            nroVenta: nroVenta,
-            fecha: fecha,
-            cliente: cliente,
-            empleado: empleado,
-            zonaVenta: zonaVenta,
-            metodo: metodo,
-            obs: obs,
-            importeTotal: importeTotal
-        })
-        borrarTablaDetalle()
-        handleCerrarModal()
+        if(fecha === '' || fecha === undefined ||
+           cliente === 'selected' || cliente === '' || cliente === undefined ||
+           empleado === 'selected' || empleado === '' || empleado === undefined ||
+           zonaVenta === 'selected' || zonaVenta === '' || zonaVenta === undefined ||
+           metodo === 'selected' || metodo === '' || metodo === undefined ||
+           detalle.length === 0
+           ){
+                alert('Faltan seleccionar datos importantes')
+           } else {
+                try {
+                    await axios.post(add_venta, {
+                        nroVenta: nroVenta,
+                        fecha: fecha,
+                        cliente: cliente,
+                        empleado: empleado,
+                        zonaVenta: zonaVenta,
+                        metodo: metodo,
+                        obs: obs,
+                        importeTotal: importeTotal
+                    })
+                    alert('La venta se guardó con exito.')
+                    handleCerrarModal()
+                } catch (error) {
+                    alert(error)
+                }
+                window.location.reload()
+            }
     }
+
 
     const agregarDetalle = async() => {
         if(producto === '' || producto === 'selected' || producto === undefined){
