@@ -1,0 +1,89 @@
+.container-det-venta{
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr;
+}
+
+.container-det-venta h1{
+    grid-column: span 2;
+}
+
+.container-det-venta .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-left: 150px;
+}
+
+.info h3{
+    font-size: 2.2rem;
+}
+
+.info ul{
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info ul li{
+    font-weight: 600;
+}
+
+.info ul li span{
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.tabla-det-venta{
+    /* background: red; */
+    overflow-y: auto;
+    padding: 10px;
+    /* height: 400px; */
+    padding: 0 30px;
+    margin: 5px 15px 0 15px;
+}
+
+.tabla-det-venta h3{
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+
+}
+
+.tabla-det-venta table{
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    box-shadow: 1px 1px 5px #525252;
+}
+
+.tabla-det-venta table thead{
+    background: #97f185;
+    font-size: 1.5rem;
+}
+
+.tabla-det-venta table thead tr th{
+    padding: 10px 10px;
+}
+
+.tabla-det-venta table tbody{
+    font-size: 1.5rem;
+    font-weight: 500;
+    background: white;
+}
+
+.tabla-det-venta table tbody tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.tabla-det-venta table tbody tr:hover{
+    background: #d6d6d6;
+
+}
+
+.tabla-det-venta table tbody tr td{
+    padding: 15px;
+}
+

@@ -5,6 +5,8 @@ import Inicio from "./pages/Inicio"
 // import NavBar from "./components/NavBar"
 import Ventas from "./pages/Ventas"
 import Login from "./pages/Login"
+import {ProtectedRoute}  from "./components/ProtectedRoute"
+import DetalleVenta from "./pages/DetalleVenta"
 
 function App() {
 
@@ -13,9 +15,13 @@ function App() {
       {/* <Header/>
       <NavBar/> */}
       <Routes>
-        <Route path="/" element={<Login/>}/>
-        <Route path="/inicio" element={<Inicio/>}/>
-        <Route path="/ventas" element={<Ventas/>}/>
+        <Route index element={<Login />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/app" element={<ProtectedRoute />}>
+          <Route path="/app/inicio" element={<Inicio />} />
+          <Route path="/app/ventas" element={<Ventas />} /> 
+          <Route path="/app/ventas/:id" element={<DetalleVenta />} /> 
+        </Route>
       </Routes>
     </Router>
   )

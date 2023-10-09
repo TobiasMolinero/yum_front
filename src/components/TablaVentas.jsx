@@ -62,8 +62,8 @@ const TablaVentas = (props) => {
                         <td>{v.nombreEmpleado}</td>
                         <td>{v.metodo}</td>
                         <td>{v.observaciones === 'undefined' ? '-' : v.observaciones}</td>
-                        <td><Link>Ver detalle</Link></td>
-                        <td>{v.totalVenta}</td>
+                        <td><Link to={`/app/ventas/${v.nroVenta}`}>Ver detalle</Link></td>
+                        <td>$ {v.totalVenta}</td>
                         <td>
                             <i className="bi bi-trash" onClick={() => {borrarVenta(v.nroVenta)}}></i>
                             <i className="bi bi-pencil-square" onClick={() => handleAbrirModalEdit({modal: true, nroVenta: v.nroVenta})}></i>

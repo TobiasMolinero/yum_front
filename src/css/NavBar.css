@@ -143,6 +143,21 @@
     white-space: nowrap;
 }
 
+div p .nav-link{
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+div p .nav-link:hover{
+    color: rgb(0, 40, 0);
+}
+
+div p .nav-link:active{
+    color: white;
+}
+
+
 @keyframes abrirMenu {
     from{
         width: 0;
