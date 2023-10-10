@@ -33,3 +33,7 @@ export const get_venta_detallada = 'http://localhost:3000/ventas/conDetalle/'
 
 // USUARIOS
 export const login_usuario = 'http://localhost:3000/usuarios/login'
+
+//INICIO
+export const get_ganancias = 'http://localhost:3000/inicio/ganancias'
+export const get_perdidas = 'http://localhost:3000/inicio/perdidas'

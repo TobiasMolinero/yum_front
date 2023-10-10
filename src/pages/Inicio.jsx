@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import Header from "../components/Header"
 import '../css/Inicio.css'
 import { useState, useEffect } from 'react'
@@ -6,6 +7,8 @@ import gastos from '../assets/gastos.png'
 import calendario from '../assets/calendario.png'
 import Header from "../components/Header"
 import NavBar from '../components/NavBar'
+import { get_ganancias, get_perdidas } from '../utils/constants/constants'
+import axios from 'axios'
 
 
 
@@ -13,8 +16,10 @@ import NavBar from '../components/NavBar'
 const Inicio = () => {
 
   const [periodo, setPeriodo] = useState()
+  const [ganancias, setGanancias] = useState()
+  const [perdidas, setPerdidas] = useState()
 
-  useEffect(() => {
+  const getPeriodo = () => {
     const date = new Date()
     let numeroMes = date.getMonth()
     let año = date.getFullYear()
@@ -70,6 +75,30 @@ const Inicio = () => {
       default:
         break;
     }
+  }
+  
+  const getGanancias = async() => {
+    try {      
+      let response = await axios.get(get_ganancias)
+      setGanancias(response.data[0].ganancias)
+    } catch (error) {
+      alert(error, 'Ocurrio un error en el servidor. Ponganse en contacto con el administrador.')
+    }
+  }
+
+  const getPerdidas = async() => {
+    try {      
+      let response = await axios.get(get_perdidas)
+      setPerdidas(response.data[0].perdidas)
+    } catch (error) {
+      alert('Ocurrio un error en el servidor. Ponganse en contacto con el administrador.')
+    }
+  }
+
+  useEffect(() => {
+    getPeriodo()
+    getGanancias()
+    getPerdidas()
   }, []);
 
   return (
@@ -88,14 +117,14 @@ const Inicio = () => {
               <img src={ingresos} alt="" />
               <ul>
                 <li><p>Ingresos</p></li>
-                <li><span className='valor-verde'>$ 0.00</span></li>
+                <li><span className='valor-verde'>$ {ganancias ? ganancias : '0.00'}</span></li>
               </ul>
             </div>
             <div>
               <img src={gastos} alt="" />
               <ul>
                 <li><p>Gastos</p></li>
-                <li><span className='valor-rojo'>$ 0.00</span></li>
+                <li><span className='valor-rojo'>$ {perdidas ? perdidas : '0.00'}</span></li>
               </ul>
             </div>
             <div className="colspan-2">
@@ -108,7 +137,7 @@ const Inicio = () => {
           </div>
           <div className='saldo-total'>
             <h3>Saldo Total</h3>
-            <span className='valor-total'>$ 0.00</span>
+            <span className='valor-total'>$ {ganancias - perdidas}</span>
           </div>
         </div>
       </div>

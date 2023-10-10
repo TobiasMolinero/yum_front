@@ -183,6 +183,9 @@ const ModalAddVenta = (props) => {
     }
 
     useEffect(() => {
+        if(detalle.lenght !== 0){
+            borrarTablaDetalle()
+        }
         getLastNroVenta()
         getListaClientes()
         getListaEmpleados()

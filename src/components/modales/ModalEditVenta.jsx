@@ -177,6 +177,9 @@ const ModalEditVenta = (props) => {
     }
 
     useEffect(() => {
+        if(detalle.length !== 0){
+            borrarTablaDetalle()
+        }
         getListaClientes()
         getListaEmpleados()
         getListaZonas()

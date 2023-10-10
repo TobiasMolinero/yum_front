@@ -12,8 +12,6 @@ function App() {
 
   return (
     <Router>
-      {/* <Header/>
-      <NavBar/> */}
       <Routes>
         <Route index element={<Login />}/>
         <Route path="/login" element={<Login />}/>
