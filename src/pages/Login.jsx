@@ -31,18 +31,19 @@ const Login = () => {
     }
   }
 
+
   return (
     <div className="login-box">
       <img src={logo2} className="avatar" alt="Avatar Image"/>
       <h1>INGRESAR USUARIO</h1>
       <form onSubmit={login}>
         <label htmlFor="username">Nombre de usuario</label>
-        <input type="text" placeholder="Ingrese usuario" onChange={(e) => {setNombreUsuario(e.target.value)}}/>
+        <input type="text" required placeholder="Ingrese usuario" onChange={(e) => {setNombreUsuario(e.target.value)}}/>
         <label htmlFor="password">Contraseña</label>
-        <input type="password" placeholder="Ingrese contraseña" onChange={(e) => {setContraseña(e.target.value)}}/>
+        <input type="password" required placeholder="Ingrese contraseña" onChange={(e) => {setContraseña(e.target.value)}}/>
         <input type="submit" value="ACCEDER"/>
-        <a href="#">Olvide mi contraseña</a><br/>
-        <a href="#">Registrar usuario</a>
+        {/* <a href="#">Olvide mi contraseña</a><br/> */}
+        {/* <a href="#">Registrar usuario</a> */}
       </form>
     </div>
   )

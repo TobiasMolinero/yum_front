@@ -4,23 +4,35 @@
     /* background: rgb(250, 183, 183); */
 }
 
+
+.container-ventas hr{
+    margin: 15px 400px;
+}
+
 .herramientas{
     /* background: blue; */
     padding: 10px;
     display: flex;
     justify-content: center;
-    gap: 150px;
+    align-items: end;
+    gap: 100px;
 }
 
 .herramientas h4{
     font-size: 1.5rem;
     margin-bottom: 5px;
+    justify-self: stretch;
 }
 
 .herramientas select{
     padding: 5px;
     font-size: 1.5rem;
     text-align: center;
+}
+
+
+.herramientas h2{
+    font-size: 2.3rem;
 }
 
 
@@ -37,6 +49,10 @@
 
 .herramientas button:hover{
     background: rgb(0, 90, 0);
+}
+
+.herramientas button:hover{
+    background: green;
 }
 
 .herramientas button .bi-plus-square{

@@ -6,7 +6,7 @@ import '../css/NavBar.css'
 import iconInicio from '../assets/inicio.png'
 import iconVentas from '../assets/ventas.png'
 import iconGastos from '../assets/gastos.png'
-import iconCaja from '../assets/caja.png'
+import iconClientes from '../assets/clientes.png'
 import iconLogout from '../assets/logout.png'
 
 const NavBar = () => {
@@ -43,8 +43,8 @@ const NavBar = () => {
             <ul>
               <li><img className='nav-icon' src={iconInicio} alt="" /><Link className='nav-link' onClick={closeMenu} to='/app/inicio'>Inicio</Link></li>
               <li><img className='nav-icon' src={iconVentas} alt="" /><Link className='nav-link' onClick={closeMenu} to='/app/ventas'>Ventas</Link></li>
-              <li><img className='nav-icon' src={iconGastos} alt="" />Gastos</li>
-              <li><img className='nav-icon' src={iconCaja} alt="" />Clientes</li>
+              <li><img className='nav-icon' src={iconGastos} alt="" /><Link className='nav-link' onClick={closeMenu} to='/app/gastos'>Gastos</Link></li>
+              <li><img className='nav-icon' src={iconClientes} alt="" /><Link className='nav-link' onClick={closeMenu} to='/app/clientes'>Clientes</Link></li>
             </ul>
           </nav>
           <div className='logout'>

@@ -37,6 +37,7 @@ const Ventas = () => {
             <NavBar/>      
             <div className="container-ventas">
                 <h1 className='titulo'>Ventas</h1>
+                <hr />
                 <MenuVentas props = {{getModal, getIdZona}}/>
                 {modal ? <ModalAddVenta getModal = {getModal}/> : ''} 
                 {modalEdit ? <ModalEditVenta props = {{getModalEdit, nroVenta}}/> : ''}

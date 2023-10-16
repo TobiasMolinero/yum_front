@@ -1,0 +1,389 @@
+.container-gastos hr{
+    margin: 15px 400px;
+}
+
+
+.grid-tablas{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 10px;
+    margin: 20px 110px 0 110px;
+    font-size: 1.5rem;
+}
+
+.grid-tablas-categorias{
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-tablas-categorias button{
+    align-self: center;
+    background: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    height: 40px;
+    width: 50%;
+    box-shadow: 2px 2px 5px #525252;
+    cursor: pointer;
+    margin: 10px 0 5px 0;
+}
+
+.grid-tablas-categorias button:hover{
+    background: rgb(0,90,0);
+}
+
+.grid-tablas-categorias button:active{
+    background: green;
+}
+
+.grid-tablas-categorias button .bi-plus-square{
+    margin-right: 5px;
+}
+
+/* .grid-tablas-gastos{
+
+}
+
+.grid-tablas-categorias{
+
+} */
+
+.grid-tablas-categorias h3{
+    text-align: center;
+}
+
+/* TABLA GASTOS */
+
+.contenedor-tabla-gastos, .contenedor-tabla-categorias{
+    overflow-y: auto;
+    padding: 10px;
+    height: 300px;
+}
+
+.tabla-gastos{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    box-shadow: 1px 1px 5px #525252;
+}
+
+.tabla-gastos thead{
+    background: #97f185;
+}
+
+.tabla-gastos thead tr th{
+    padding: 10px 10px;
+}
+
+.tabla-gastos tbody {
+    font-weight: 500;
+    background: white;
+}
+
+.tabla-gastos tbody tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.tabla-gastos tbody tr:hover{
+    background: #d6d6d6;
+
+}
+
+.tabla-gastos tbody tr td{
+    padding: 15px;
+}
+
+.tabla-gastos tbody tr td .bi-trash{
+    padding: 5px 15px;
+    color: #f2f2f2;
+    background: #eb4949;
+    cursor: pointer;
+}
+
+.tabla-gastos tbody tr td .bi-trash:hover{
+    background: #e91d1d;
+}
+
+.tabla-gastos tbody tr td .bi-trash:active{
+    background: #eb4949;
+}
+
+.tabla-gastos tbody tr td .bi-pencil-square{
+    padding: 5px 15px;
+    color: #181818;
+    background: #d0dd1a;
+    cursor: pointer;
+}
+
+.tabla-gastos tbody tr td .bi-pencil-square:hover{
+    background: #eeff00;
+}
+.tabla-gastos tbody tr td .bi-pencil-square:active{
+    background: #d0dd1a;
+}
+
+/* TABLA CATEGORIAS */
+
+.contenedor-tabla-categorias{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.tabla-categorias-gastos{
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    box-shadow: 1px 1px 5px #525252;
+}
+
+.tabla-categorias-gastos thead{
+    background: #bdbdbd;
+    font-size: 1.5rem;
+}
+
+.tabla-categorias-gastos thead tr th{
+    padding: 10px 10px;
+}
+
+.tabla-categorias-gastos tbody{
+    font-size: 1.5rem;
+    font-weight: 500;
+    background: white;
+}
+
+.tabla-categorias-gastos tbody tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.tabla-categorias-gastos tbody tr:hover{
+    background: #d6d6d6;
+
+}
+
+.tabla-categorias-gastos tbody tr td{
+    padding: 15px;
+} 
+
+.tabla-categorias-gastos tbody tr td .bi-trash{
+    padding: 5px 15px;
+    color: #f2f2f2;
+    background: #eb4949;
+    cursor: pointer;
+}
+
+.tabla-categorias-gastos tbody tr td .bi-trash:hover{
+    background: #e91d1d;
+}
+
+.tabla-categorias-gastos tbody tr td .bi-trash:active{
+    background: #eb4949;
+}
+
+.tabla-categorias-gastos tbody tr td .bi-pencil-square{
+    padding: 5px 15px;
+    color: #181818;
+    background: #d0dd1a;
+    cursor: pointer;
+}
+
+.tabla-categorias-gastos tbody tr td .bi-pencil-square:hover{
+    background: #eeff00;
+}
+.tabla-categorias-gastos tbody tr td .bi-pencil-square:active{
+    background: #d0dd1a;
+}
+
+/* MENU GASTOS */
+
+.menu-gastos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.menu-gastos .filtros select{
+    font-size: 1.5rem;
+    padding: 5px;
+    text-align: center;
+}
+
+.menu-gastos .boton-agregar button{
+    background: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    height: 40px;
+    box-shadow: 2px 2px 5px #525252;
+    cursor: pointer;
+}
+
+.menu-gastos .boton-agregar button:hover{
+    background: rgb(0,90,0);
+}
+
+.menu-gastos .boton-agregar button:active{
+    background: green;
+}
+
+.menu-gastos .boton-agregar button i{
+    margin-right: 5px;
+}
+
+/* MODALES */
+
+.modal-gastos{
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.modal-gastos button{
+    margin: 10px 10px 0 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+.modal-gastos button i{
+    font-size: 2rem;
+}
+
+.modal-gastos button i:hover{
+    color:rgba(82, 82, 82)
+}
+
+.modal-gastos-container{
+    font-size: 1.8rem;
+    padding: 5px 40px;
+}
+
+.modal-gastos-container h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-gastos-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modal-gastos-container form div{
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.modal-gastos-container form input,
+.modal-gastos-container form select,
+.modal-gastos-container form textarea{
+    padding: 5px;
+    font-size: 1.6rem;
+    flex-grow: 1;
+}
+
+.modal-gastos-container form select{
+    text-align: center;
+}
+
+.modal-gastos-container form textarea{
+    resize: none;
+}
+
+.modal-gastos-container form label{
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.modal-gastos-container .modal-botones{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.modal-gastos-container .modal-botones .boton-guardar,
+.modal-gastos-container .modal-botones .boton-cancelar{
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    box-shadow: 2px 2px 5px #525252;
+    cursor: pointer;
+}
+
+
+
+/* MODALES CATEGORIAS */
+/* MODAL AGREGAR */
+
+.modal-categoria{
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-categoria button{
+    margin: 10px 10px 0 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    align-self: end;
+}
+
+
+.modal-categoria button i{
+    font-size: 2rem;
+}
+
+.modal-categoria button i:hover{
+    color:rgba(82, 82, 82)
+}
+
+.modal-categoria h2{
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.modal-categoria form{
+    font-size: 1.6rem;
+    padding: 10px;
+}
+
+.modal-categoria form label{
+    font-weight: 600;
+}
+
+.modal-categoria form .input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.modal-categoria form .input input{
+    padding: 5px;
+    font-size: 1.6rem;
+}
+
+
+.modal-categoria .modal-botones{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.modal-categoria .modal-botones .boton-guardar,
+.modal-categoria .modal-botones .boton-cancelar{
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    box-shadow: 2px 2px 5px #525252;
+    cursor: pointer;
+}

@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Inicio from "./pages/Inicio"
-// import Header from "./components/Header"
-// import NavBar from "./components/NavBar"
 import Ventas from "./pages/Ventas"
 import Login from "./pages/Login"
 import {ProtectedRoute}  from "./components/ProtectedRoute"
 import DetalleVenta from "./pages/DetalleVenta"
+import Gastos from "./pages/Gastos"
+import Clientes from "./pages/Clientes"
 
 function App() {
 
@@ -19,6 +19,8 @@ function App() {
           <Route path="/app/inicio" element={<Inicio />} />
           <Route path="/app/ventas" element={<Ventas />} /> 
           <Route path="/app/ventas/:id" element={<DetalleVenta />} /> 
+          <Route path="/app/gastos" element={<Gastos />} />
+          <Route path="/app/clientes" element={<Clientes />} /> 
         </Route>
       </Routes>
     </Router>

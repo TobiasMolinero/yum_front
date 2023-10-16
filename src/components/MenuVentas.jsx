@@ -10,6 +10,7 @@ const MenuVentas = (props) => {
 
   const [zona, setZona] = useState(1)
   const [listaZonas, setListaZonas] = useState([])
+  const [nombreZona, setNombreZona] = useState('CENTRO')
 
   // Funcion donde utilizamos la props para pasarle el valor true a Ventas y abrir el Modal.
   const handleAbrirModal = () => {
@@ -25,12 +26,36 @@ const MenuVentas = (props) => {
     setListaZonas(response.data)
   }
 
+  const getNombreZona = (id) => {
+    switch (id) {
+      case '1':
+        setNombreZona('CENTRO')
+        break;
+    
+      case '2':
+        setNombreZona('YERBA BUENA')
+        break;
+    
+      case '3':
+        setNombreZona('CONCEPCION')
+        break;
+
+      case '4':
+        setNombreZona('TEVAH')
+        break;
+    
+      default:
+        break;
+    }
+  }
+
   useEffect(() => {
     getListaZonas()
   }, [])
 
   useEffect(() => {
     getIdZona()
+    getNombreZona(zona)
   }, [zona])
 
   return (
@@ -47,6 +72,7 @@ const MenuVentas = (props) => {
           }
         </select>
       </div>
+      <h2>{nombreZona}</h2>
       <button onClick={handleAbrirModal}><i className="bi bi-plus-square"></i>Agregar Venta</button>
     </div>
   )

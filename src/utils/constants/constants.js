@@ -37,3 +37,18 @@ export const login_usuario = 'http://localhost:3000/usuarios/login'
 //INICIO
 export const get_ganancias = 'http://localhost:3000/inicio/ganancias'
 export const get_perdidas = 'http://localhost:3000/inicio/perdidas'
+
+//GASTOS
+export const get_gastos_v = 'http://localhost:3000/gastos'
+export const borrar_gasto = 'http://localhost:3000/gastos/borrar/'
+export const filtrar_por_mes = 'http://localhost:3000/gastos/filtrar/'
+export const agregar_gasto = 'http://localhost:3000/gastos/agregar'
+export const one_gasto = 'http://localhost:3000/gastos/one/'
+export const editar_gasto = 'http://localhost:3000/gastos/editar/'
+
+//CATEGORIAS GASTOS
+export const get_categorias_gastos = 'http://localhost:3000/catgastos'
+export const agregar_categoria_gasto = 'http://localhost:3000/catgastos/agregar'
+export const borrar_categoria = 'http://localhost:3000/catgastos/borrar/'
+export const one_categoria = 'http://localhost:3000/catgastos/one/'
+export const editar_categoria = 'http://localhost:3000/catgastos/editar/'
