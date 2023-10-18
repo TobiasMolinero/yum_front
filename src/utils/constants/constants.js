@@ -1,6 +1,10 @@
 // RUTAS
 // CLIENTES
 export const get_lista_clientes = 'http://localhost:3000/clientes'
+export const get_one_cliente = 'http://localhost:3000/clientes/'
+export const agregar_cliente = 'http://localhost:3000/clientes/agregar'
+export const borrar_cliente = 'http://localhost:3000/clientes/delete/'
+export const editar_cliente = 'http://localhost:3000/clientes/editar/'
 
 // PRODUCTOS
 export const get_lista_productos = 'http://localhost:3000/productos'

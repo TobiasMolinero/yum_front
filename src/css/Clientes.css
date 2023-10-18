@@ -1,0 +1,178 @@
+.container-clientes hr{
+    margin: 25px 400px;
+}
+
+.grid-clientes{
+    margin: 0 200px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.contenedor-tabla-clientes{
+    padding: 10px;
+    overflow: auto;
+    max-height: 400px;
+}
+
+.contenedor-tabla-clientes table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    box-shadow: 1px 1px 5px #525252;
+}
+
+.contenedor-tabla-clientes table thead{
+    background: #97f185;
+    font-size: 1.5rem;
+}
+
+.contenedor-tabla-clientes table thead tr th{
+    padding: 10px;
+}
+
+.contenedor-tabla-clientes table tbody{
+    font-weight: 500;
+    background: white;
+    font-size: 1.5rem;
+}
+
+.contenedor-tabla-clientes table tbody tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.contenedor-tabla-clientes table tbody tr:hover{
+    background: #d6d6d6;
+}
+
+.contenedor-tabla-clientes tbody tr td{
+    padding: 15px;
+}
+
+.contenedor-tabla-clientes tbody tr td .bi-trash{
+    padding: 5px 15px;
+    color: #f2f2f2;
+    background: #eb4949;
+    cursor: pointer;
+}
+
+.contenedor-tabla-clientes tbody tr td .bi-trash:hover{
+    background: #e91d1d;
+}
+
+.contenedor-tabla-clientes tbody tr td .bi-trash:active{
+    background: #eb4949;
+}
+.contenedor-tabla-clientes tbody tr td .bi-pencil-square{
+    padding: 5px 15px;
+    color: #181818;
+    background: #d0dd1a;
+    cursor: pointer;
+}
+
+.contenedor-tabla-clientes tbody tr td .bi-pencil-square:hover{
+    background: #eeff00;
+}
+.contenedor-tabla-clientes tbody tr td .bi-pencil-square:active{
+    background: #d0dd1a;
+}
+
+/* BOTON */
+
+.contenedor-boton{
+    padding: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.contenedor-boton .boton-agregar{
+    background: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    height: 40px;
+    box-shadow: 2px 2px 5px #525252;
+    cursor: pointer;
+}
+
+.contenedor-boton .boton-agregar:hover{
+    background: rgb(0,90,0);
+}
+
+.contenedor-boton .boton-agregar:active{
+    background: green;
+}
+
+.contenedor-boton .boton-agregar i{
+    margin-right: 5px;
+}
+
+/* MODAL-ADD */
+
+.modal-clientes{
+    background: #f2f2f2;
+    padding: 0 10px;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.modal-clientes button{
+    margin: 10px 10px 0 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-clientes button i{
+    font-size: 2rem;
+}
+
+.modal-clientes button i:hover{
+    color:rgba(82, 82, 82)
+}
+
+.modal-clientes h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-clientes form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modal-clientes form div{
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+}
+
+.modal-clientes form input{
+    padding: 5px;
+    font-size: 1.6rem;
+    flex-grow: 1;
+}
+
+.modal-clientes form label{
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.modal-clientes-container .modal-botones{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.modal-clientes-container .modal-botones .boton-guardar,
+.modal-clientes-container .modal-botones .boton-cancelar{
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    box-shadow: 2px 2px 5px #525252;
+    cursor: pointer;
+}
