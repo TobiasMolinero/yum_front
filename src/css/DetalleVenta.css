@@ -87,3 +87,13 @@
     padding: 15px;
 }
 
+.volver-ventas{
+    position: absolute;
+    top: 160px;
+    left: 50px;
+    font-size: 1.8rem;
+}
+
+.volver-ventas .bi-arrow-left{
+    margin-right: 5px;
+}

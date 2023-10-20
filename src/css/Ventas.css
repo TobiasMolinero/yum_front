@@ -203,6 +203,38 @@
     text-align: center;
 }
 
+.modal-container form .select-cliente{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.modal-container form .select-cliente select{
+    flex-grow: 1;
+}
+
+.modal-container form .atajo-agregar-clientes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: green;
+    color: #f2f2f2;
+    height: 100%;
+    width: 35px;
+    font-size: 2.5rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.modal-container form .atajo-agregar-clientes:hover{
+    background: rgb(0, 90, 0);
+}
+
+.modal-container form .atajo-agregar-clientes:active{
+    background: green;
+}
+
 .modal-container form input,
 .modal-container form select,
 .modal-container form select option,

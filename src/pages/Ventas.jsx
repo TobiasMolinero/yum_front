@@ -42,7 +42,7 @@ const Ventas = () => {
                 {modal ? <ModalAddVenta getModal = {getModal}/> : ''} 
                 {modalEdit ? <ModalEditVenta props = {{getModalEdit, nroVenta}}/> : ''}
                 <div className="tabla">
-                    <TablaVentas props = {{zona, getModalEdit}}/>
+                    <TablaVentas props = {{zona, getModalEdit}} modal={modal} modalEdit={modalEdit}/>
                 </div>
             </div>
         </>

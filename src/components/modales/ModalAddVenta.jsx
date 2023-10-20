@@ -16,6 +16,7 @@ import { get_lista_productos,
         get_last_NroVenta,
         add_venta
 } from '../../utils/constants/constants'
+import ModalAddCliente from './ModalAddCliente'
 
 const ModalAddVenta = (props) => {
 
@@ -43,10 +44,24 @@ const ModalAddVenta = (props) => {
     const [listaProductos, setListaProductos] = useState([])
     const [detalle, setDetalle] = useState([])
 
+    const [modalCliente, setModalCliente] = useState()
+
     // Funcion donde utilizamos la props para pasarle a Ventas el valor false y cerrar el modal.
     const handleCerrarModal = () => {
         borrarTablaDetalle()
         props.getModal(false)        
+    }
+
+    // FUNCION PARA TRAER EL VALOR FALSE DEL MODAL CLIENTES Y CERRAR EL MISMO
+
+    const getValorModalCliente = (value) => {
+        setModalCliente(value)
+    }
+
+    // ABRIR MODAL CLIENTE
+
+    const abrirModalCliente = () => {
+        setModalCliente(true)
     }
 
     // FUNCIONES GET
@@ -202,9 +217,14 @@ const ModalAddVenta = (props) => {
         calcularSubTotal()
     }, [detalle])
 
+    useEffect(() => {
+        getListaClientes()
+    } ,[modalCliente])
+
 
   return (
       <div className="modal-background">
+        {modalCliente ? <ModalAddCliente getValorModalCliente={getValorModalCliente}/> : ''}
         <div className="modal">
             <button onClick={handleCerrarModal}><i className="bi bi-x-lg"></i></button>
             <div className="modal-container">
@@ -215,12 +235,15 @@ const ModalAddVenta = (props) => {
                         <input id='nroventa' type="number" defaultValue={nroVenta} disabled onChange={(e) => setNroVenta(e.target.value)}/>
                     </div>
                     <input type="date" onChange={(e) => setFecha(e.target.value)}/>
-                    <select defaultValue='selected' onChange={(e) => setCliente(e.target.value)}>
-                        <option value="selected">-- Seleccione Cliente --</option>
-                        {listaClientes.map( c => 
-                            <option key={c.idCliente} value={c.idCliente}>{c.nombreCliente.toUpperCase()}</option>) 
-                        }
-                    </select>
+                    <div className='select-cliente'>
+                        <select defaultValue='selected' onChange={(e) => setCliente(e.target.value)}>
+                            <option value="selected">-- Seleccione Cliente --</option>
+                            {listaClientes.map( c => 
+                                <option key={c.idCliente} value={c.idCliente}>{c.nombreCliente.toUpperCase()}</option>) 
+                            }
+                        </select>
+                        <p onClick={abrirModalCliente} title='Agregar cliente' className='atajo-agregar-clientes'> + </p>
+                    </div>
                     <select defaultValue='selected' onChange={(e) => setEmpleado(e.target.value)}>
                         <option value="selected">-- Seleccione Empleado --</option>
                         {listaEmpleados.map(emp => 

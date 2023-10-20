@@ -3,7 +3,7 @@
 import Header from '../components/Header'
 import NavBar from '../components/NavBar'
 import TablaDetalles from "../components/TablaDetalles"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { get_venta_detallada } from '../utils/constants/constants'
@@ -53,6 +53,7 @@ const DetalleVenta = () => {
                 <div className="tabla-det-venta">
                     <TablaDetalles nroVenta={id} />
                 </div>
+                <p className='volver-ventas'><Link to='/app/ventas'><i className="bi bi-arrow-left"></i>Volver a ventas</Link></p>
             </div>
         </>
     )

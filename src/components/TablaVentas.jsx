@@ -37,6 +37,10 @@ const TablaVentas = (props) => {
         getVentas()
     }, [props.props.zona])
 
+    useEffect(() => {
+        getVentas()
+    }, [props.modal, props.modalEdit])
+
     return (
         <table>
             <thead>

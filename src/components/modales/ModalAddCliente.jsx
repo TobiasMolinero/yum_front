@@ -13,8 +13,10 @@ const ModalAddCliente = (props) => {
     const [telefono, setTelefono] = useState()
 
     const handleCerrarModal = () => {
-        props.cerrarModal(false)
+        props.cerrarModal ? props.cerrarModal(false)
+                          : props.getValorModalCliente(false)
     }
+    
 
     const agregarCliente = async(e) => {
         e.preventDefault()
@@ -29,7 +31,6 @@ const ModalAddCliente = (props) => {
         } catch (error) {
             alert(error)
         }
-        window.location.reload()
     }
 
     return (

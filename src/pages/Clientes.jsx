@@ -42,7 +42,7 @@ const Clientes = () => {
           <hr />
           <div className="grid-clientes">
             <div className="contenedor-tabla-clientes">
-              <TablaClientes abrirModalEdit={abrirModalEdit}/>
+              <TablaClientes abrirModalEdit={abrirModalEdit} modal={modal} modalEdit={modalEdit}/>
             </div>
             <div className="contenedor-boton">
               <button onClick={abrirModal} className='boton-agregar'><i className='bi bi-plus-square'></i>Agregar Cliente</button>

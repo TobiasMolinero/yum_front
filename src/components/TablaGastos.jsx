@@ -44,6 +44,10 @@ const TablaGastos = (props) => {
         getGastos()
     }, [props.mes])
 
+    useEffect(() => {
+        getGastos()
+    } ,[props.modal, props.modalEdit])
+
   return (
     <table className='tabla-gastos'>
       <thead>

@@ -35,6 +35,10 @@ const TablaClientes = (props) => {
         getClientes()
     } ,[])
 
+    useEffect(() => {
+        getClientes()
+    } ,[props.modal, props.modalCliente])
+
     return (
         <>
             <table>

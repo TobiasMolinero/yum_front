@@ -73,7 +73,7 @@ const Gastos = () => {
               <h3>Categorias Gastos</h3>
               <button onClick={handleAbrirModalCategoria}><i className='bi bi-plus-square'></i>Agregar Categoria</button>
               <div className="contenedor-tabla-categorias">
-                <TablaCategoriasGastos getModalCategoriaEdit={getModalCategoriaEdit}/>
+                <TablaCategoriasGastos getModalCategoriaEdit={getModalCategoriaEdit} modal={modal} modalEdita={modalEdit}/>
               </div>
             </div>
           </div>
