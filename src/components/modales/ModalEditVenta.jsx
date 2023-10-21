@@ -19,6 +19,7 @@ import {
     mod_venta
 } from "../../utils/constants/constants"
 import '../../css/Ventas.css'
+import { error_servidor, venta_guardada } from "../../utils/alertas/alertas"
 
 const ModalEditVenta = (props) => {
 
@@ -121,12 +122,13 @@ const ModalEditVenta = (props) => {
                     obs: obs,
                     importeTotal: importeTotal
                 })
-                alert('Se modificó con exito.')
+                venta_guardada.fire({
+                    text: 'La venta se modificó con exito.'
+                })
                 handleCerrarModalEdit()
             } catch (error) {
-                alert(error)
+                error_servidor.fire()
             }
-            window.location.reload()
         }
     }
 

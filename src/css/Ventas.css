@@ -64,7 +64,7 @@
     /* background: red; */
     overflow-y: auto;
     padding: 10px;
-    height: 380px;
+    height: 300px;
     padding: 0 30px;
     margin: 5px 15px 0 15px;
 }
@@ -349,7 +349,7 @@
 .detalle-venta table tbody tr td i{
     padding: 5px 15px;
     color: #f2f2f2;
-    background: rgb(235, 73, 73);
+    background: #eb4949;
     cursor: pointer;
 }
 

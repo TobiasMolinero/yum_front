@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import '../css/Gastos.css'
 import { borrar_gasto, filtrar_por_mes } from '../utils/constants/constants'
+import { borrado_exitoso, conffirm_borrar, error_servidor } from '../utils/alertas/alertas'
 
 const TablaGastos = (props) => {
 
@@ -30,13 +31,22 @@ const TablaGastos = (props) => {
         }
     }
 
-    const borrarGasto = async(id) => {
-        try {
-            await axios.delete(borrar_gasto + id)
-            getGastos()
-        } catch (error) {
-            alert('Ocurrio un error en el servidor.')
-        }
+    const borrarGasto = (id) => {
+
+        conffirm_borrar.fire().then((result) => {
+            if(result.isConfirmed){
+                axios.delete(borrar_gasto + id)
+                borrado_exitoso.fire({
+                    icon: 'success',
+                    text: 'El registro se eliminó con exito.'
+                })
+                getGastos()
+                
+            }
+        })
+        .catch(error => {
+            error_servidor.fire()
+        })
     }
 
 

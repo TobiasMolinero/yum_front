@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react'
 import '../../css/Gastos.css'
 import { editar_categoria, one_categoria } from '../../utils/constants/constants'
 import axios from 'axios'
+import { gasto_guardado } from '../../utils/alertas/alertas'
 
 const ModalEditCategoria = (props) => {
 
@@ -30,12 +31,13 @@ const ModalEditCategoria = (props) => {
             await axios.put(editar_categoria + props.idCategoriaGasto, {
                 categoriaGasto: nombreCategoria
             })
-            alert('Se modificó con exito')
+            gasto_guardado.fire({
+                text: 'Categoria modificada con exito.'
+            })
             handleCerrarModal()
         } catch (error) {
             alert(error)
         }
-        window.location.reload()
     }
 
 

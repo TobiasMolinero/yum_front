@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { get_categorias_gastos, agregar_gasto } from '../../utils/constants/constants'
 import '../../css/Gastos.css'
+import { gasto_guardado } from '../../utils/alertas/alertas'
 
 const ModalAddGasto = (props) => {
 
@@ -39,12 +40,13 @@ const ModalAddGasto = (props) => {
                     fecha: fecha,
                     importe: importe
                 })
-                alert('El gasto se registró con exito.')
+                gasto_guardado.fire({
+                    text: 'Gasto registrado.'
+                })
                 handleCerrarModal()
             } catch (error) {
                 alert(error)
             }
-            window.location.reload()
         }
     }
 

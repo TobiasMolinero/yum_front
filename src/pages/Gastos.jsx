@@ -66,14 +66,14 @@ const Gastos = () => {
             <div className='grid-tablas-gastos'>
               <MenuGastos getValorMes={getValorMes} getModal={getModal} mes={valorMes}/>
               <div className="contenedor-tabla-gastos">
-                <TablaGastos getModalEdit={getModalEdit} mes={valorMes}/>
+                <TablaGastos getModalEdit={getModalEdit} mes={valorMes} modal={modal} modalEdit={modalEdit}/>
               </div>
             </div>
             <div className="grid-tablas-categorias">
               <h3>Categorias Gastos</h3>
               <button onClick={handleAbrirModalCategoria}><i className='bi bi-plus-square'></i>Agregar Categoria</button>
               <div className="contenedor-tabla-categorias">
-                <TablaCategoriasGastos getModalCategoriaEdit={getModalCategoriaEdit} modal={modal} modalEdita={modalEdit}/>
+                <TablaCategoriasGastos getModalCategoriaEdit={getModalCategoriaEdit} modal={modalCategoria} modalEdit={modalCategoriaEdit}/>
               </div>
             </div>
           </div>

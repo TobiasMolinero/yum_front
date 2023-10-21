@@ -4,6 +4,7 @@ import { login_usuario } from '../utils/constants/constants'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { datos_invalidos, toast } from '../utils/alertas/alertas'
 
 const Login = () => {
 
@@ -23,9 +24,15 @@ const Login = () => {
       alert(error)
     }
     if(response.data === 0){
-      alert('Los datos no son validos.')
+      datos_invalidos.fire({
+        icon: 'error',
+        text: 'Datos invalidos.'
+      })
     } else {
-      alert('Se inició sesion correctamente.')
+      toast.fire({
+        icon: 'success',
+        text:'Iniciaste sesion correctamente'
+      })
       localStorage.setItem('auth', true)
       navigate('/app/inicio')
     }

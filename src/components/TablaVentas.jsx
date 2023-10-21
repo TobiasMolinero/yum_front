@@ -6,6 +6,7 @@ import {useState, useEffect } from 'react'
 import axios from 'axios'
 import { del_venta, get_ventas } from '../utils/constants/constants'
 import { Link } from 'react-router-dom'
+import { borrado_exitoso, conffirm_borrar, error_servidor } from '../utils/alertas/alertas'
 
 const TablaVentas = (props) => {
 
@@ -24,13 +25,21 @@ const TablaVentas = (props) => {
         }
     }
 
-    const borrarVenta = async(id) => {
-        try {
-            await axios.delete(del_venta + id)
-            getVentas()
-        } catch (error) {
-            alert(error)
-        }
+    const borrarVenta = (id) => {
+         conffirm_borrar.fire().then((result) => {
+            if(result.isConfirmed){
+                axios.delete(del_venta + id)
+                borrado_exitoso.fire({
+                    icon:'success',
+                    text:'Borrado con exito'
+                })
+                getVentas()
+            }
+        })
+        .catch((error) => {
+            error_servidor.fire()
+        })
+
     }
 
     useEffect(() => {

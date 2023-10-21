@@ -5,6 +5,7 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import '../../css/Gastos.css'
 import { one_gasto, get_categorias_gastos, editar_gasto } from '../../utils/constants/constants'
+import { gasto_guardado } from '../../utils/alertas/alertas'
 
 const ModalEditGasto = (props) => {
 
@@ -50,12 +51,13 @@ const ModalEditGasto = (props) => {
                 importe: importe, 
                 descripcion: descripcion
             })
-            alert('El gasto se modificó con exito.')
+            gasto_guardado.fire({
+                text: 'Registro modificado.'
+            })
             handleCerrarModal()
         } catch (error) {
             alert(error)
         }
-        window.location.reload()
     }
 
     useEffect(() => {

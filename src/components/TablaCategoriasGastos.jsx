@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../css/Gastos.css'
 import { borrar_categoria, get_categorias_gastos } from '../utils/constants/constants'
+import { borrado_exitoso, conffirm_borrar, error_servidor } from '../utils/alertas/alertas'
 
 const TablaCategoriasGastos = (props) => {
 
@@ -23,17 +24,28 @@ const TablaCategoriasGastos = (props) => {
   }
 
   const borrarCategoria = async(id) => {
-    try {
-      await axios.put(borrar_categoria + id)
-      getCategorias()
-    } catch (error) {
-      alert(error)
-    }
+    conffirm_borrar.fire().then((result) => {
+      if(result.isConfirmed){
+          axios.put(borrar_categoria + id)
+          borrado_exitoso.fire({
+              icon: 'success',
+              text: 'El registro se eliminó con exito.'
+          })
+          getCategorias()
+      }
+  })
+  .catch(error => {
+      error_servidor.fire()
+  })
   }
 
   useEffect(() => {
     getCategorias()
   }, [])
+
+  useEffect(() => {
+    getCategorias()
+  }, [props.modalCategoria, props.getModalCategoriaEdit])
 
   return (
       <table className='tabla-categorias-gastos'>

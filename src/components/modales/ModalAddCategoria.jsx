@@ -4,6 +4,7 @@ import { useState } from "react"
 import '../../css/Gastos.css'
 import { agregar_categoria_gasto } from "../../utils/constants/constants"
 import axios from "axios"
+import { gasto_guardado } from "../../utils/alertas/alertas"
 
 const ModalAddCategoria = (props) => {
 
@@ -19,12 +20,13 @@ const ModalAddCategoria = (props) => {
             await axios.post(agregar_categoria_gasto, {
                 categoriaGasto: nombreCategoria
             })
-            alert('Se registró con exito')
+            gasto_guardado.fire({
+                text: 'Categoria registrada con exito.'
+            })
             handleCerrarModal()
         } catch (error) {
             alert(error)
         }
-        window.location.reload()
     }
 
   return (

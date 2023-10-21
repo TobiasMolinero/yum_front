@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../../css/Clientes.css'
 import { editar_cliente, get_one_cliente } from '../../utils/constants/constants.js'
+import { cliente_guardado } from '../../utils/alertas/alertas'
 
 const ModalEditClientes = (props) => {
 
@@ -37,12 +38,13 @@ const ModalEditClientes = (props) => {
                 domicilio: domicilio,
                 telefono: telefono
             })
-            alert('El cliente se modificó con exito.')
+            cliente_guardado.fire({
+                text: 'Los datos del cliente se modificaron con exito.'
+            })
             handleCerrarModal()
         } catch (error) {
             alert(error)
         }
-        window.location.reload()
     }
 
     useEffect(() => {

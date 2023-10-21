@@ -8,6 +8,7 @@ import iconVentas from '../assets/ventas.png'
 import iconGastos from '../assets/gastos.png'
 import iconClientes from '../assets/clientes.png'
 import iconLogout from '../assets/logout.png'
+import { confirmar_cerrar_sesion, error_servidor } from '../utils/alertas/alertas'
 
 const NavBar = () => {
 
@@ -24,9 +25,18 @@ const NavBar = () => {
   }
 
   const cerrarSesion = () => {
-    localStorage.removeItem('auth')
-    alert('Sesion cerrada.')
-    navigate('/login')
+    confirmar_cerrar_sesion.fire().then((result) => {
+      if(result.isConfirmed){
+        localStorage.removeItem('auth')
+        navigate('/login')
+      } else {
+        return null
+      }
+
+    })
+    .catch(error => {
+      error_servidor.fire()
+    })
   }
 
   return (

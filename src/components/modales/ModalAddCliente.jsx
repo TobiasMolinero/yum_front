@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import '../../css/Clientes.css'
 import axios from 'axios'
 import { agregar_cliente } from '../../utils/constants/constants'
+import { cliente_guardado } from '../../utils/alertas/alertas'
 
 const ModalAddCliente = (props) => {
 
@@ -26,7 +27,9 @@ const ModalAddCliente = (props) => {
                 domicilio: domicilio,
                 telefono: telefono
             })
-            alert('El cliente se registró con exito.')
+            cliente_guardado.fire({
+                text: 'El cliente se registró con exito.'
+            })
             handleCerrarModal()
         } catch (error) {
             alert(error)

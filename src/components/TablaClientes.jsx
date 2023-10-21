@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../css/Clientes.css'
 import { borrar_cliente, get_lista_clientes } from '../utils/constants/constants'
+import { borrado_exitoso, conffirm_borrar, error_servidor } from '../utils/alertas/alertas'
 
 const TablaClientes = (props) => {
 
@@ -23,12 +24,19 @@ const TablaClientes = (props) => {
     }
 
     const borrarCliente = async(id) => {
-        try {
-            await axios.delete(borrar_cliente + id)
-            getClientes()
-        } catch (error) {
-            alert(error)   
-        }
+        conffirm_borrar.fire().then((result) => {
+            if(result.isConfirmed){
+                axios.delete(borrar_cliente + id)
+                borrado_exitoso.fire({
+                    icon: 'success',
+                    text: 'El registro se eliminó con exito.'
+                })
+                getClientes()
+            }
+        })
+        .catch(error => {
+            error_servidor.fire()
+        })
     }
 
     useEffect(() => {
@@ -37,7 +45,7 @@ const TablaClientes = (props) => {
 
     useEffect(() => {
         getClientes()
-    } ,[props.modal, props.modalCliente])
+    } ,[props.modal, props.modalEdit])
 
     return (
         <>
