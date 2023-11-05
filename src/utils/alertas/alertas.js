@@ -154,6 +154,68 @@ export const faltan_datos = Swal.mixin({
     },
 })
 
+export const falta_categoria = Swal.mixin({
+    icon: "warning",
+    title: 'ATENCION',
+    html: '<p class="fuente-texto">Seleccione una categoria</p>',
+    showCloseButton: false,
+    confirmButtonColor: '#97f185',
+    confirmButtonText: 'Volver',
+    focusConfirm: false,
+    customClass: {
+        title: 'fuente-titulo',
+        confirmButton: 'fuente-boton',
+        cancelButton: 'fuente-boton'
+    },
+})
+
+export const falta_detalle = Swal.mixin({
+    icon: "warning",
+    title: 'ATENCION',
+    html: '<p class="fuente-texto">Es necesario un detalle para modificar la venta.</p>',
+    showCloseButton: false,
+    confirmButtonColor: '#97f185',
+    confirmButtonText: 'Volver',
+    focusConfirm: false,
+    customClass: {
+        title: 'fuente-titulo',
+        confirmButton: 'fuente-boton',
+        cancelButton: 'fuente-boton'
+    },
+})
+
+export const seleccione_producto = Swal.mixin({
+    icon: "warning",
+    title: 'ATENCION',
+    html: '<p class="fuente-texto">Seleccione un producto.</p>',
+    showCloseButton: false,
+    confirmButtonColor: '#97f185',
+    confirmButtonText: 'Volver',
+    focusConfirm: false,
+    customClass: {
+        title: 'fuente-titulo',
+        confirmButton: 'fuente-boton',
+        cancelButton: 'fuente-boton'
+    },
+})
+
+export const indique_cantidad = Swal.mixin({
+    icon: "warning",
+    title: 'ATENCION',
+    html: '<p class="fuente-texto">Ingrese la cantidad.</p>',
+    showCloseButton: false,
+    confirmButtonColor: '#97f185',
+    confirmButtonText: 'Volver',
+    focusConfirm: false,
+    customClass: {
+        title: 'fuente-titulo',
+        confirmButton: 'fuente-boton',
+        cancelButton: 'fuente-boton'
+    },
+})
+
+
+
 // BORRADO CON EXITO
 
 export const borrado_exitoso = Swal.mixin({

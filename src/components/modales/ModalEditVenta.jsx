@@ -19,7 +19,7 @@ import {
     mod_venta
 } from "../../utils/constants/constants"
 import '../../css/Ventas.css'
-import { error_servidor, venta_guardada } from "../../utils/alertas/alertas"
+import { error_servidor, falta_detalle, indique_cantidad, seleccione_producto, venta_guardada } from "../../utils/alertas/alertas"
 
 const ModalEditVenta = (props) => {
 
@@ -60,42 +60,70 @@ const ModalEditVenta = (props) => {
             setMetodo(response.data[0].idMetodoPago)
             setObs(response.data[0].observaciones)
         } catch (error) {
-            alert(error)
+            error_servidor.fire()
         }
     }
 
     const getListaClientes = async() => {
-        let response = await axios.get(get_lista_clientes)
-        setListaClientes(response.data)
+        try{
+            let response = await axios.get(get_lista_clientes)
+            setListaClientes(response.data)
+        } catch {
+            error_servidor.fire()
+        }
     }
 
     const getListaEmpleados = async() => {
-        let response = await axios.get(get_lista_empleados)
-        setListaEmpleados(response.data)
+        try{
+            let response = await axios.get(get_lista_empleados)
+            setListaEmpleados(response.data)
+        } catch {
+            error_servidor.fire()
+        }
     }
 
     const getListaZonas = async() => {
-        let response = await axios.get(get_lista_zonas)
-        setListaZonas(response.data)
+        try{
+            let response = await axios.get(get_lista_zonas)
+            setListaZonas(response.data)
+        } catch {
+            error_servidor.fire()
+        }
     }
 
     const getListaFormaPago = async() => {
-        let response = await axios.get(get_lista_formaPago)
-        setListaFormaPago(response.data)
+        try{
+            let response = await axios.get(get_lista_formaPago)
+            setListaFormaPago(response.data)
+        } catch {
+            error_servidor.fire()
+        }
     }
 
     const getListaProductos = async() => {
-        let response = await axios.get(get_lista_productos)
-        setListaProductos(response.data)
+        try{
+            let response = await axios.get(get_lista_productos)
+            setListaProductos(response.data)
+        } catch {
+            error_servidor.fire()
+        }
     }
 
     const getDetTemp = async() => {
-        let response = await axios.get(get_det_temp)
-        setDetalle(response.data)
+        try{
+            let response = await axios.get(get_det_temp)
+            setDetalle(response.data)
+        } catch {
+            error_servidor.fire()
+        }
     }
 
     const updateTablaDetTemp = async() => {
-        await axios.post(upd_table_det_temp + nroVenta)
+        try{
+            await axios.post(upd_table_det_temp + nroVenta)
+        } catch {
+            error_servidor.fire()
+        }
     }
 
     const getPrecioProducto = () => {
@@ -110,7 +138,7 @@ const ModalEditVenta = (props) => {
     const modificarVenta = async() => {
 
         if(detalle.length === 0){
-            alert('Es necesario agregar un detalle para modificar la venta.')
+            falta_detalle.fire()
         } else {
             try {
                 await axios.put(mod_venta + nroVenta, {
@@ -134,10 +162,9 @@ const ModalEditVenta = (props) => {
 
     const agregarDetalle = async() => {
         if(producto === '' || producto === 'selected' || producto === undefined){
-            alert('Debe seleccionar un producto')
-        
+            seleccione_producto.fire()  
         }else if(cantidad === '' || cantidad === 0 || cantidad === undefined){
-            alert('Ingrese la cantidad')
+            indique_cantidad.fire()
         }else{
             try {
                 await axios.post(add_det_temp, {
@@ -146,7 +173,7 @@ const ModalEditVenta = (props) => {
                     cantidad: cantidad
                 }) 
             } catch (error) {
-                alert(error)
+                error_servidor.fire()
             }
             getDetTemp()
             setProducto('selected')
@@ -162,7 +189,7 @@ const ModalEditVenta = (props) => {
             await axios.delete(del_det_temp_id + id)
             getDetTemp()
         } catch (error) {
-            alert('Error')
+            error_servidor.fire()
         }
     }
 
@@ -177,6 +204,7 @@ const ModalEditVenta = (props) => {
         })
         setImporteTotal(acc)
     }
+
 
     useEffect(() => {
         if(detalle.length !== 0){
@@ -233,7 +261,7 @@ const ModalEditVenta = (props) => {
                                 <option key={fp.idMetodoPago} value={fp.idMetodoPago}>{fp.metodo.toUpperCase()}</option>
                             )}
                         </select>
-                        <textarea defaultValue={obs === 'undefined' ? '' : obs} cols="30" rows="5" placeholder='Observaciones' onChange={(e) => setObs(e.target.value)} />
+                        <textarea defaultValue={obs === 'undefined' ? '' : obs} cols="30" rows="5" placeholder='Observaciones' onChange={(e) => {setObs(e.target.value)}} />
                     </form>
                     <div className="detalle-venta">
                         <select ref={selectProductos} defaultValue='selected' onChange={(e) => { setProducto(e.target.value) }}>

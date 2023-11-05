@@ -4,7 +4,7 @@ import { login_usuario } from '../utils/constants/constants'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { datos_invalidos, toast } from '../utils/alertas/alertas'
+import { datos_invalidos, error_servidor, toast } from '../utils/alertas/alertas'
 
 const Login = () => {
 
@@ -21,7 +21,7 @@ const Login = () => {
         contraseña: contraseña
       })
     } catch (error) {
-      alert(error)
+      error_servidor.fire()
     }
     if(response.data === 0){
       datos_invalidos.fire({

@@ -73,7 +73,7 @@ const MenuVentas = (props) => {
         </select>
       </div>
       <h2>{nombreZona}</h2>
-      <button onClick={handleAbrirModal}><i className="bi bi-plus-square"></i>Agregar Venta</button>
+      <button type='button' onClick={handleAbrirModal}><i className="bi bi-plus-square"></i>Agregar Venta</button>
     </div>
   )
 }

@@ -1,0 +1,9 @@
+Fondo del body y modales:  #f2f2f2,
+botones agregar: green,
+botones agregar hover: rgb(0, 90, 0),
+headers(pagina y tablas): #97f185.
+botones borrar: #eb4949,
+botones editar: #d0dd1a
+botones Cancelar: #bdbdbd
+ 
+sombras: #525252

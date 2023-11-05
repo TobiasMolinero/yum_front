@@ -9,6 +9,7 @@ import Header from "../components/Header"
 import NavBar from '../components/NavBar'
 import { get_ganancias, get_perdidas } from '../utils/constants/constants'
 import axios from 'axios'
+import { error_servidor } from '../utils/alertas/alertas'
 
 
 
@@ -82,7 +83,7 @@ const Inicio = () => {
       let response = await axios.get(get_ganancias)
       setGanancias(response.data[0].ganancias)
     } catch (error) {
-      alert(error, 'Ocurrio un error en el servidor. Ponganse en contacto con el administrador.')
+      error_servidor.fire()
     }
   }
 
@@ -91,7 +92,7 @@ const Inicio = () => {
       let response = await axios.get(get_perdidas)
       setPerdidas(response.data[0].perdidas)
     } catch (error) {
-      alert('Ocurrio un error en el servidor. Ponganse en contacto con el administrador.')
+      error_servidor.fire()
     }
   }
 

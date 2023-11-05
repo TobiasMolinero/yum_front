@@ -5,7 +5,7 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import '../../css/Gastos.css'
 import { one_gasto, get_categorias_gastos, editar_gasto } from '../../utils/constants/constants'
-import { gasto_guardado } from '../../utils/alertas/alertas'
+import { error_servidor, gasto_guardado } from '../../utils/alertas/alertas'
 
 const ModalEditGasto = (props) => {
 
@@ -26,7 +26,7 @@ const ModalEditGasto = (props) => {
             let response = await axios.get(get_categorias_gastos)
             setCategorias(response.data)
         } catch (error) {
-            alert('Ocurrio un error en el servidor.')
+            error_servidor.fire()
         }
     }
 
@@ -38,7 +38,7 @@ const ModalEditGasto = (props) => {
             setImporte(response.data[0].importe)
             setDescripcion(response.data[0].descripcion)
         } catch (error) {
-            alert(error)
+            error_servidor.fire()
         }
     }
 
@@ -56,7 +56,7 @@ const ModalEditGasto = (props) => {
             })
             handleCerrarModal()
         } catch (error) {
-            alert(error)
+            error_servidor.fire()
         }
     }
 

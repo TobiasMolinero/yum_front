@@ -51,7 +51,7 @@
     background: rgb(0, 90, 0);
 }
 
-.herramientas button:hover{
+.herramientas button:active{
     background: green;
 }
 
@@ -103,7 +103,11 @@
 }
 
 .tabla table tbody tr td{
+    max-width: 200px;
     padding: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .tabla table tbody tr td .bi-trash{

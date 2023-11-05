@@ -7,7 +7,7 @@ import ModalAddVenta from '../components/modales/ModalAddVenta'
 import Header from '../components/Header'
 import NavBar from '../components/NavBar'
 import ModalEditVenta from '../components/modales/ModalEditVenta'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const Ventas = () => {
 

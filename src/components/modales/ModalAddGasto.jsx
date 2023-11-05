@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { get_categorias_gastos, agregar_gasto } from '../../utils/constants/constants'
 import '../../css/Gastos.css'
-import { gasto_guardado } from '../../utils/alertas/alertas'
+import { error_servidor, falta_categoria, gasto_guardado } from '../../utils/alertas/alertas'
 
 const ModalAddGasto = (props) => {
 
@@ -24,14 +24,14 @@ const ModalAddGasto = (props) => {
             let response = await axios.get(get_categorias_gastos)
             setCategorias(response.data)
         } catch (error) {
-            alert('Ocurrio un error en el servidor.')
+            error_servidor.fire()
         }
     }
 
     const agregarGasto = async(e) => {
         e.preventDefault()
         if(categoria === 'selected' || categoria === undefined){
-            alert('Debe seleccionar una categoria.')
+            falta_categoria.fire()
         } else {
             try {
                 await axios.post(agregar_gasto, {
@@ -45,7 +45,7 @@ const ModalAddGasto = (props) => {
                 })
                 handleCerrarModal()
             } catch (error) {
-                alert(error)
+                error_servidor.fire()
             }
         }
     }

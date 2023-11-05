@@ -21,7 +21,7 @@ const TablaVentas = (props) => {
             let response = await axios.get(get_ventas + props.props.zona)
             setVentas(response.data)
         } catch (error) {
-            alert(error)
+            error_servidor.fire()
         }
     }
 

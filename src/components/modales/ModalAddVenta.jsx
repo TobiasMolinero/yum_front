@@ -17,7 +17,7 @@ import { get_lista_productos,
         add_venta
 } from '../../utils/constants/constants'
 import ModalAddCliente from './ModalAddCliente'
-import { error_servidor, faltan_datos, venta_guardada } from '../../utils/alertas/alertas'
+import { error_servidor, faltan_datos, indique_cantidad, seleccione_producto, venta_guardada } from '../../utils/alertas/alertas'
 
 const ModalAddVenta = (props) => {
 
@@ -148,7 +148,7 @@ const ModalAddVenta = (props) => {
                         handleCerrarModal()
                     )
                 } catch (error) {
-                    alert(error)
+                    error_servidor.fire()
                 }
             }
     }
@@ -156,10 +156,10 @@ const ModalAddVenta = (props) => {
 
     const agregarDetalle = async() => {
         if(producto === '' || producto === 'selected' || producto === undefined){
-            alert('Debe seleccionar un producto')
+            seleccione_producto.fire()
 
         }else if(cantidad === '' || cantidad === 0 || cantidad === undefined){
-            alert('Ingrese la cantidad')
+            indique_cantidad.fire()
         }else{
             try {
                 await axios.post(add_det_temp, {
@@ -168,7 +168,7 @@ const ModalAddVenta = (props) => {
                     cantidad: cantidad
                 })
             } catch (error) {
-                alert(error)
+                error_servidor.fire()
             }
             getDetTemp()
             setProducto('selected')
@@ -184,7 +184,7 @@ const ModalAddVenta = (props) => {
             await axios.delete(del_det_temp_id + id)
             getDetTemp()
         } catch (error) {
-            alert('Error')
+            error_servidor.fire()
         }
     }
 
